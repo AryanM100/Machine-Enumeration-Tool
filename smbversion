@@ -1,71 +1,0 @@
-This copy of metasploit-framework is more than two weeks old.
- Consider running 'msfupdate' to update to the latest version.
-[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-Metasploit tip: After running db_nmap, be sure to check out the result 
-of hosts and services
-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|                                                  
-[0m[36m[37mCall trans opt: received. 2-19-98 13:24:18 REC:Loc
-
-     Trace program: running
-
-           wake up, Neo...
-        [1mthe matrix has you[0m
-      follow the white rabbit.
-
-          knock, knock, Neo.
-
-                        (`.         ,-,
-                        ` `.    ,;' /
-                         `.  ,'/ .'
-                          `. X /.'
-                .-;--''--.._` ` (
-              .'            /   `
-             ,           ` '   Q '
-             ,         ,   `._    \
-          ,.|         '     `-.;_'
-          :  . `  ;    `  ` --,.._;
-           ' `    ,   )   .'
-              `._ ,  '   /_
-                 ; ,''-,;' ``-
-                  ``-..__``--`
-
-                             https://metasploit.com[0m
-[0m
-
-       =[ [33mmetasploit v6.4.55-dev-[0m                         ]
-+ -- --=[ 2502 exploits - 1290 auxiliary - 431 post       ]
-+ -- --=[ 1607 payloads - 49 encoders - 13 nops           ]
-+ -- --=[ 9 evasion                                       ]
-
-Metasploit Documentation: https://docs.metasploit.com/
-
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-[?1034hstty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-[4mmsf6[0m [0m> stty: 'standard input': Inappropriate ioctl for device
-[0mstty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-[4mmsf6[0m auxiliary([1m[31mscanner/smb/smb_version[0m) [0m> stty: 'standard input': Inappropriate ioctl for device
-[0mRHOSTS => 192.168.20.71
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-[4mmsf6[0m auxiliary([1m[31mscanner/smb/smb_version[0m) [0m> stty: 'standard input': Inappropriate ioctl for device
-[0m[1m[34m[*][0m 192.168.20.71:139     -   Host could not be identified: Unix (Samba 2.2.1a)
-[1m[34m[*][0m 192.168.20.71         - Scanned 1 of 1 hosts (100% complete)
-[1m[34m[*][0m Auxiliary module execution completed
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-[4mmsf6[0m auxiliary([1m[31mscanner/smb/smb_version[0m) [0m> stty: 'standard input': Inappropriate ioctl for device
-[0m
