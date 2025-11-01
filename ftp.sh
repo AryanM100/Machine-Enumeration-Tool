@@ -2,4 +2,4 @@
 
 ip=$(echo $1)
 
-ftp ftp://anonymous:anonymous@$ip 2>/dev/null | tee /home/ryan/HackinStuff/IS/MET/ftp
+ftp ftp://anonymous:anonymous@$ip 2>/dev/null | tee Text/ftp

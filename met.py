@@ -2,20 +2,20 @@
 
 import argparse
 import subprocess
+import ast
 
-parser = argparse.ArgumentParser(description = "This is a Machine Exploitation Tool which will tell you the exploit you need to run in order to gain root access to the machine, if it has an exploit.")
+parser = argparse.ArgumentParser(description = "This is a Machine Exploitation Tool which will tell you the exploit you need to run in order to gain access to the machine, if it has an exploit.")
 parser.add_argument("-i", metavar="",help="Provide an IP", type=str)
 args = parser.parse_args()
 
 ip = args.i
 result = ""
 ports = []
-x = ""
-y = ""
-z = ""
+service = []
+ps = {}
 w = ""
 v = ""
-#/home/ryan/HackinStuff/IS/MET/
+r = ""
 
 if(ip == None):
   print("Use this tool with an option. Use -h or --help for help.")
@@ -27,94 +27,59 @@ elif(ip != None):
       print("Provide a valid IP address.")
       break
   
-  #subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./nmap.sh', ip])
+  subprocess.call(['bash', './nmap.sh', ip])
   
-  output = subprocess.run(['python3', '/home/ryan/HackinStuff/IS/MET/ver.py'], text=True, capture_output=True)
-  ports = output.stdout.strip()
+  output = subprocess.run(['python3', 'ver.py'], text=True, capture_output=True)
+  ps = output.stdout.strip()
+
+  ps = ast.literal_eval(ps)
+  ports = list(ps.keys())
+  service = list(ps.values())
 
   print("Ports open on this machine -")
-  print(ports)
+  print(ps)
   print("Nmap result has been saved.")
   print("---------------------------------------------------------------------------------------------------------------------------------")
 
-  if '80' in ports or '443' in ports or '8080' in ports:
-    if '80' in ports:
-      x = "80"
-    if '443' in ports:
-      y = "443"
-    if '8080' in ports:
-      z = "8080"
+  if 'http' in service or 'https' in service:
     print("Run ffuf ?")
     a = input()
     if(a == "Y" or a == "y" or a == "yes" or a == "Yes" or a == "YES"):
-      subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./ffuf.sh', ip, x, y, z])
-
-      if '80' in ports:
-        print("Port 80 -")
-
-        with open('/home/ryan/HackinStuff/IS/MET/ffuf1') as f:
-          for line in f:
-            if "Status" in line and "#" not in line:
-              print(line, end='')
-
-      if '443' in ports:
-
-        print("Port 443 -")
-
-        with open('/home/ryan/HackinStuff/IS/MET/ffuf2') as f:
-          for line in f:
-            if "Status" in line and "#" not in line:
-              print(line, end='')
-
-      if '8080' in ports:
-
-        print("Port 8080 -")
-
-        with open('/home/ryan/HackinStuff/IS/MET/ffuf3') as f:
-          for line in f:
-            if "Status" in line and "#" not in line:
-              print(line, end='')
+      for key, value in ps.items():
+        if(value == "http" or value == "https"):
+          subprocess.call(['bash', './ffuf.sh', ip, key, value])
+        
+          with open('Text/ffuf') as f:
+            print("Port " + key + " (" + value + ") -")
+            for line in f:
+              if "Status" in line and "#" not in line:
+                print(line, end='')
+            print()
 
     print("---------------------------------------------------------------------------------------------------------------------------------")
 
   if '21' in ports:
     print("FTP -")
-    subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./ftp.sh', ip])
+    subprocess.call(['bash', './ftp.sh', ip])
 
-    with open('/home/ryan/HackinStuff/IS/MET/ftp') as f:
+    with open('Text/ftp') as f:
       for line in f:
         if "incorrect" in line:
           print("Anonymous Login Failed.")
     print("---------------------------------------------------------------------------------------------------------------------------------")
 
-  if '22' in ports:
-    print("Bruteforce SSH ? If yes provide username, or say no(n).")
-    a = input()
-    if(a != "N" and a != "n" and a != "no" and a != "No" and a != "NO"):
-      subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./ssh.sh', ip, a])
-
-      with open('/home/ryan/HackinStuff/IS/MET/hydra') as f:
-        for line in f:
-          if "host" in line:
-            print(line, end='')
-            for line in f:
-              if "github" not in line:
-                print(line, end='')
-
-    print("---------------------------------------------------------------------------------------------------------------------------------")
-
   if '139' in ports or '445' in ports:
-    with open('/home/ryan/HackinStuff/IS/MET/inputmsf', 'w') as f:
+    with open('Text/inputmsf', 'w') as f:
       f.write("""use auxiliary/scanner/smb/smb_version
 set RHOSTS """)
       f.write(ip)
       f.write("\nrun")
 
-    subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./smb.sh', ip])
+    subprocess.call(['bash', './smb.sh', ip])
 
     print("smbclient -")
 
-    with open("/home/ryan/HackinStuff/IS/MET/smb") as f:
+    with open("Text/smb") as f:
       for line in f:
         if "Anonymous" in line:
           print(line)
@@ -127,7 +92,7 @@ set RHOSTS """)
 
     print("msfconsole smb_version -")
 
-    with open("/home/ryan/HackinStuff/IS/MET/smbversion") as f:
+    with open("Text/smbversion") as f:
       for line in f:
         if ip+":139" in line:
           print(line, end='')
@@ -140,8 +105,8 @@ set RHOSTS """)
 
   if '2049' in ports:
     print("NFS -")
-    subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./nfs.sh', ip])
-    with open('nfs') as f:
+    subprocess.call(['bash', './nfs.sh', ip])
+    with open('Text/nfs') as f:
       for line in f:
         if "Export" not in line and line.strip() != "":
           w = line.split()
@@ -153,29 +118,51 @@ set RHOSTS """)
 
   if '53' in ports:
     print("DNSRecon -")
-    subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./dns.sh', ip])
+    subprocess.call(['bash', './dns.sh', ip])
+    print("---------------------------------------------------------------------------------------------------------------------------------")
+  
+  if 'ssh' in ps.values() or 'smtp' in ps.values() or 'pop3' in ps.values() or 'ftp' in ps.values():
+    print("Use Hydra to bruteforce ? If yes provide username and port separated by a space, or say no(n).")
+    a = input()
+
+    if(a != "N" and a != "n" and a != "no" and a != "No" and a != "NO"):
+      u, p = a.split()
+      s = ps[p]
+      subprocess.call(['bash', './hydra.sh', ip, u, p, s])
+
+      with open('Text/hydra') as f:
+        for line in f:
+          if "host" in line:
+            print(line, end='')
+            for line in f:
+              if "github" not in line:
+                print(line, end='')
+
     print("---------------------------------------------------------------------------------------------------------------------------------")
 
+  subprocess.call(['python3', 'info.py', ip, str(ports)])
 
-  subprocess.call(['python3', 'info.py', ip, ports])
-
-  with open('info') as f:
+  with open('Text/info') as f:
     for line in f:
       v += line + " "
-      with open('inputexploit', 'w') as file:
+      with open('Text/inputexploit', 'w') as file:
         file.write("search " + v)
   
-  subprocess.call(['bash', '/home/ryan/HackinStuff/IS/MET/./exploit.sh', ip])
+  if(v != "linux  "):
+    subprocess.call(['bash', './exploit.sh', ip])
 
-  print("Exploits -")
+    print("Exploits -")
 
-  with open("/home/ryan/HackinStuff/IS/MET/exploit") as f:
-    for line in f:
-      if "Matching Modules" in line:
-        print(line, end='')
-        for line in f:
-          if "stty" in line:
-            break
-          if "For example" in line:
-            break
+    with open("Text/exploit") as f:
+      for line in f:
+        if "Matching Modules" in line:
           print(line, end='')
+          for line in f:
+            if "stty" in line:
+              break
+            if "For example" in line:
+              break
+            print(line, end='')
+
+  with open("Text/results", 'w') as f:
+    f.write(r)

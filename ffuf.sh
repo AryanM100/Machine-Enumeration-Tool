@@ -1,18 +1,7 @@
 #!/bin/bash
 
 ip=$(echo $1)
-x=$(echo $2)
-y=$(echo $3)
-z=$(echo $4)
+port=$(echo $2)
+service=$(echo $3)
 
-if [[ "$x" == "80" ]]; then
-   ffuf -w /home/ryan/HackinStuff/HelpThings/dlistmedium.txt -u http://$ip/FUZZ > ffuf1 2>&1
-fi
-
-if [[ "$y" == "443" ]]; then
-   ffuf -w /home/ryan/HackinStuff/HelpThings/dlistmedium.txt -u https://$ip/FUZZ > ffuf2 2>&1
-fi
-
-if [[ "$z" == "8080" ]]; then
-   ffuf -w /home/ryan/HackinStuff/HelpThings/dlistmedium.txt -u http://$ip:8080/FUZZ > ffuf3 2>&1
-fi
+ffuf -c -w Wordlists/dlistmedium.txt -u $service://$ip:$port/FUZZ > Text/ffuf 2>&1

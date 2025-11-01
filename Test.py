@@ -1,8 +1,8 @@
 #!/bin/python3
 
-with open('nfs') as f:
-  for line in f:
-    if "Export" not in line:
-      w = line.split()
-      w = w[0]
-      print("1")
+ports = ['25', '80', '55006', '55007']
+service = ['smtp', 'http', 'ssl/unknown', 'pop3']
+a = ""
+print(a := ports)
+
+#print(a)

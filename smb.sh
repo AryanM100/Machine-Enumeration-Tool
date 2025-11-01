@@ -3,6 +3,6 @@
 ip=$(echo $1)
 a="smb_version"
 
-smbclient -L \\\\$ip\\ > /home/ryan/HackinStuff/IS/MET/smb < /home/ryan/HackinStuff/IS/MET/inputsmb 2>&1
+smbclient -L \\\\$ip\\ > Text/smb < Text/inputsmb 2>&1
 
-msfconsole > /home/ryan/HackinStuff/IS/MET/smbversion < /home/ryan/HackinStuff/IS/MET/inputmsf 2>&1
+msfconsole > Text/smbversion < Text/inputmsf 2>&1

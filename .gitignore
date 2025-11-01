@@ -1,4 +1,5 @@
-dns
-nmap
-nikto
+Text/
+Test.py
+ip.sh
+Things
 .vscode/

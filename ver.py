@@ -2,20 +2,26 @@
 
 import sys
 
-filename = "/home/ryan/HackinStuff/IS/MET/nmap"
-loc = "/home/ryan/HackinStuff/IS/MET/ver"
+filename = "Text/nmap"
+loc = "Text/ver"
 a = ""
 b = ""
 ports = []
+service = []
+ps = {}
 
 with open(filename) as f:
   for line in f:
     if(line[0].isdigit() and "/" in line):
+      line = " ".join(line.split()) + "\n"
       a += line
       ports.append(line.split('/')[0])
-      
-with open(loc, "w") as file:
+      service.append(line.split()[2])
+
+with open(loc, 'w') as file:
   file.write(a)
 
+ps = dict(zip(ports, service))
+
 #print(a)
-print(ports)
+print(ps)

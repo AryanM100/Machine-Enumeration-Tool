@@ -2,4 +2,4 @@
 
 ip=$(echo $1)
 
-showmount -e $ip | tee nfs
+showmount -e $ip | tee Text/nfs

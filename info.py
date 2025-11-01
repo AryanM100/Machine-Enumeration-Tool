@@ -17,7 +17,7 @@ c = ""
 e = ""
 hosts = ""
 
-with open('nmap') as f:
+with open('Text/nmap') as f:
   for line in f:
     if linux in line.lower() or windows in line.lower() or solaris in line.lower() or freebsd in line.lower() or osx in line.lower() or osx2 in line.lower():
       if linux in line.lower():
@@ -34,7 +34,7 @@ with open('nmap') as f:
         a = osx2
 
 if '53' in ports:
-  with open('dns') as f:
+  with open('Text/dns') as f:
     for line in f:
       if "PTR" in line:
         b = line.split()
@@ -50,7 +50,7 @@ if '53' in ports:
             file.writelines(hosts)
 
 if '139' in ports or '445' in ports:
-  with open('smbversion') as f:
+  with open('Text/smbversion') as f:
     for line in f:
       if ip+":139" in line:
         e = line.split()
@@ -59,5 +59,5 @@ if '139' in ports or '445' in ports:
         e = e.replace(")", "")
         e = e[:-3]
 
-with open('info', 'w') as f:
+with open('Text/info', 'w') as f:
   f.write(a+" "+e)
