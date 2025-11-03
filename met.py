@@ -86,6 +86,9 @@ set RHOSTS """)
       f.write(ip)
       f.write("\nrun")
 
+    with open('Text/inputsmb', 'w') as f:
+      f.write("\n")
+
     subprocess.call(['bash', './smb.sh', ip])
 
     print("smbclient -")

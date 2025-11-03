@@ -3,5 +3,12 @@
 ip=$(echo $1)
 w=$(echo $2)
 
-mkdir /mnt/vms
+d="/mnt/vms"
+
+if [ -d "$d" ]; then
+  true
+else
+  mkdir /mnt/vms
+fi
+
 mount -t nfs $ip:$w /mnt/vms
