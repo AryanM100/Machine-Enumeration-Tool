@@ -22968,7 +22968,6 @@ boxright
 xbr
 msg00052
 EuroCAUCElogo
-http%3A%2F%2Fwww
 msg00059
 galerias
 11366
@@ -31864,7 +31863,6 @@ redirection
 metrofi
 t52
 21147
-http%3A
 rave
 21027335
 21060091
@@ -35656,7 +35654,6 @@ browseresearch
 spam-filtering
 arrow_gold-right
 msg00112
-**http%3a
 coral
 Fringe
 newsarch
@@ -39204,7 +39201,6 @@ index_71
 20051109
 index_78
 p2_header
-*http%3A
 index_67
 58795
 liveperson
@@ -55404,7 +55400,6 @@ articles1
 redd
 fullnews
 44116
-**http%3A
 42722
 109391
 June28
@@ -55694,7 +55689,6 @@ tableof
 dsk
 SkypeSetup
 200601bydate
-http%3A%2F%2Fyoutube
 newsearch
 Technorati
 GTO
@@ -69483,7 +69477,6 @@ holdempoker
 kinderkleidung
 pokerstars
 button1a
-http%3A%2F%2Fblogs
 hollywood-poker
 26038
 22501
@@ -71512,7 +71505,6 @@ fsis2007
 1up_mushroom
 publicart
 post-details
-http%3A%2F%2Fblog
 todaysnews
 103381
 py01
@@ -82359,7 +82351,6 @@ buffer_overflow
 mp3_sunglasses
 missile_defense
 190553
-**http%3A%2F%2Fwww
 sh_titlelogo
 page_01
 helpwanted-latest
@@ -186174,7 +186165,6 @@ PoindexterIAO
 Printed
 pundits
 tvnews
-http%3A%2F%2Fcommunity
 bpa
 new-release
 comsol
@@ -196080,7 +196070,6 @@ news-room
 gaypride
 002658
 002720
-http%3A%2F%2Fradar
 002665
 002728
 002729
@@ -218266,7 +218255,6 @@ jeremiahgrossman
 t2943
 jgrossman
 t294
-http%3A%2F%2Fjeremiahgrossman
 t2939
 t295
 t2950
@@ -218390,7 +218378,6 @@ t2800
 t2799
 t2798
 homefooter
-http%3A%2F%2Fweblog
 t2482
 t2151
 t2135
@@ -219154,7 +219141,6 @@ t2976
 t2975
 t2974
 t2972
-http%3A%2F%2Fswik
 t3025
 t3069
 t3058

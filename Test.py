@@ -2,7 +2,4 @@
 
 ports = ['25', '80', '55006', '55007']
 service = ['smtp', 'http', 'ssl/unknown', 'pop3']
-a = ""
-print(a := ports)
-
-#print(a)
+a = "linux samba 2.2        "

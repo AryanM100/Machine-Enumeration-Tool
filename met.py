@@ -16,6 +16,7 @@ ps = {}
 w = ""
 v = ""
 r = ""
+s = ""
 
 if(ip == None):
   print("Use this tool with an option. Use -h or --help for help.")
@@ -27,7 +28,17 @@ elif(ip != None):
       print("Provide a valid IP address.")
       break
   
-  subprocess.call(['bash', './nmap.sh', ip])
+  subprocess.call(['bash', './ports.sh', ip])
+
+  with open('Text/ports') as file:
+    for line in file:
+      if(line[0].isdigit() and "/" in line):
+        line = line.split()
+        s += line[0].split("/")[0] + ","
+  
+  s = s[0:-1]
+
+  subprocess.call(['bash', './nmap.sh', ip, s])
   
   output = subprocess.run(['python3', 'ver.py'], text=True, capture_output=True)
   ps = output.stdout.strip()
@@ -148,7 +159,7 @@ set RHOSTS """)
       with open('Text/inputexploit', 'w') as file:
         file.write("search " + v)
   
-  if(v != "linux  "):
+  if(len(v.split()) > 1):
     subprocess.call(['bash', './exploit.sh', ip])
 
     print("Exploits -")
