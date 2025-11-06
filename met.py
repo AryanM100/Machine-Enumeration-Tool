@@ -55,17 +55,27 @@ elif(ip != None):
   if 'http' in service or 'https' in service:
     print("Run ffuf ?")
     a = input()
+
+    with open('Text/ffuf', 'w') as file:
+      file.write("")
+
     if(a == "Y" or a == "y" or a == "yes" or a == "Yes" or a == "YES"):
       for key, value in ps.items():
         if(value == "http" or value == "https"):
           subprocess.call(['bash', './ffuf.sh', ip, key, value])
         
           with open('Text/ffuf') as f:
-            print("Port " + key + " (" + value + ") -")
+            r += "\nPort " + key + " (" + value + ") -\n"
             for line in f:
               if "Status" in line and "#" not in line:
-                print(line, end='')
-            print()
+                r += line
+
+      r = r.strip()
+      print(r)
+      with open("Text/ffuf", 'w') as file:
+        file.write(r)
+  
+    subprocess.call(['python3', 'curl.py', ip, str(ps)])
 
     print("---------------------------------------------------------------------------------------------------------------------------------")
 
@@ -179,4 +189,4 @@ set RHOSTS """)
             print(line, end='')
 
   with open("Text/results", 'w') as f:
-    f.write(r)
+    f.write("")

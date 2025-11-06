@@ -8,7 +8,7 @@ d="/mnt/vms"
 if [ -d "$d" ]; then
   true
 else
-  mkdir /mnt/vms
+  sudo mkdir /mnt/vms
 fi
 
-mount -t nfs $ip:$w /mnt/vms
+sudo mount -t nfs $ip:$w /mnt/vms

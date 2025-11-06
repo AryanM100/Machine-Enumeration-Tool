@@ -3,7 +3,7 @@
 import sys
 
 ip = sys.argv[1]
-ports = sys.argv[2]
+ports = list(sys.argv[2])
 
 linux = "linux"
 windows = "windows"
