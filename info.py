@@ -1,9 +1,13 @@
 #!/bin/python3
 
 import sys
+import ast
 
 ip = sys.argv[1]
-ports = list(sys.argv[2])
+ps = sys.argv[2]
+ps = ast.literal_eval(ps)
+ports = list(ps.keys())
+service = list(ps.values())
 
 linux = "linux"
 windows = "windows"

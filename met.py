@@ -28,6 +28,7 @@ elif(ip != None):
       print("Provide a valid IP address.")
       break
   
+  subprocess.call(['bash', './cleanup.sh'])
   subprocess.call(['bash', './ports.sh', ip])
 
   with open('Text/ports') as file:
@@ -61,8 +62,11 @@ elif(ip != None):
 
     if(a == "Y" or a == "y" or a == "yes" or a == "Yes" or a == "YES"):
       for key, value in ps.items():
-        if(value == "http" or value == "https"):
-          subprocess.call(['bash', './ffuf.sh', ip, key, value])
+        if("http" in value or "https" in value):
+          if("https" in value):
+            subprocess.call(['bash', './ffuf.sh', ip, key, "https"])
+          else:
+            subprocess.call(['bash', './ffuf.sh', ip, key, "http"])
         
           with open('Text/ffuf') as f:
             r += "\nPort " + key + " (" + value + ") -\n"
@@ -164,7 +168,7 @@ set RHOSTS """)
 
     print("---------------------------------------------------------------------------------------------------------------------------------")
 
-  subprocess.call(['python3', 'info.py', ip, str(ports)])
+  subprocess.call(['python3', 'info.py', ip, str(ps)])
 
   with open('Text/info') as f:
     for line in f:
